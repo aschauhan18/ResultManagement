@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -28,10 +29,14 @@ import javax.swing.border.Border;
 
 public class createStudents extends JInternalFrame {
 
+	JPanel pnlContentPane;
 	JPanel pnlHeader;
 	JPanel pnlContent ;
 	JPanel pnlControls ;
+	JPanel pnlSearch;
+	JPanel pnlfilter;
 	JPanel pnlTable;
+	JScrollPane scrollContentPane;
 	/*LABELS FOR TITILE*/
 	
 	actionListener alistener=new actionListener();
@@ -51,28 +56,91 @@ public class createStudents extends JInternalFrame {
 	JLabel Contactno=new JLabel("Contact no",SwingConstants.RIGHT);
 	JLabel lbldobDate=new JLabel("Date of Birth",SwingConstants.RIGHT);
 	JLabel lblcStatus=new JLabel("Current Status",SwingConstants.RIGHT);
+	/*[search controls]*/
+	Object[] tblSearchcolumns ={"Student name","Roll no"," Class","Dob","Father's name","Contactno","Status","Modify","Delete"};
+	Object[][] tblSearchRawdata=new Object[][]{
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
+			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"}
+			
+	};
+ 	JScrollPane jtblSearchScrollbar=new JScrollPane();
+	JLabel lblSearchStd =new JLabel("Student name",SwingConstants.RIGHT);
+	JLabel lblSearchRollno =new JLabel("Roll no. ",SwingConstants.RIGHT);
+	
+	JTextField txtSearchStd =new JTextField(20);
+	JTextField txtSearchRollno =new JTextField(20);
+	
+	JButton btnSearchFilter =new JButton("Filter");
+	JButton btnSearchReset =new JButton(" Reset ");
+	
+	/*[Search controls closed]*/
 	
 	/*Input controls for all */
-	JTextField txtStudentname =new JTextField(25);
+	JTextField txtStudentname =new JTextField(20);
 	JTextArea txtAddress =new JTextArea(3,1);
 	JComboBox cbClass =new JComboBox(clsContants.classList);
 	JComboBox cbSectoin =new JComboBox(clsContants.sectionList);
-	JTextField txtRollno =new JTextField(25);
-	JTextField txtJbdate =new JTextField(25);
-	JTextField txtFathername =new JTextField(25);
-	JTextField txtMothername =new JTextField(25);
-	JTextField txtContactno =new JTextField(25);
-	JTextField txtDob =new JTextField(25);
+	JTextField txtRollno =new JTextField(20);
+	JTextField txtJbdate =new JTextField(20);
+	JTextField txtFathername =new JTextField(20);
+	JTextField txtMothername =new JTextField(20);
+	JTextField txtContactno =new JTextField(20);
+	JTextField txtDob =new JTextField(20);
 	JCheckBox ckCurrentStatus=new JCheckBox("Current Status");	
 	/*Closed input*/
-	JTextField txtClassname=new JTextField(25);
-	JTextField txtSection=new JTextField(25);
-	JTextField txtClassTeacher=new JTextField(25);
+	JTextField txtClassname=new JTextField(20);
+	JTextField txtSection=new JTextField(20);
+	JTextField txtClassTeacher=new JTextField(20);
 	
 	JButton btnClose=new JButton("Close");
 	JButton btnSave=new JButton("Save");
 	
-	JTable tblStudent;
+	 JTable tblStudent;
 	  
 	
 	public createStudents()
@@ -85,6 +153,10 @@ public class createStudents extends JInternalFrame {
 		pnlHeader=new JPanel();
 		pnlContent=new JPanel();
 		pnlControls=new JPanel();
+		 
+		pnlContentPane=new JPanel(new BorderLayout());
+		scrollContentPane=new JScrollPane();
+		pnlContentPane.add(scrollContentPane);
 		setClosable(true);
 		try{
 			setSelected(true);}catch(PropertyVetoException ae)
@@ -116,7 +188,7 @@ public class createStudents extends JInternalFrame {
 		pnlbasicDetail.setLayout(bglayout);
 		c.ipadx=5;
 		c.ipady=5;
-		c.insets=new Insets(0,0,5,5);
+		c.insets=new Insets(0,0,0,5);
 		c.gridx=0;c.gridy=0;c.fill=GridBagConstraints.HORIZONTAL;		
 		pnlbasicDetail.add(lblstudent,c);		
 		txtStudentname.setFont(utils.textboxfont);
@@ -152,7 +224,7 @@ public class createStudents extends JInternalFrame {
 		/*Add Personal Detail   -------------------------*/
 		GridBagLayout bgplayout=new GridBagLayout();
 		GridBagConstraints cc =new GridBagConstraints();
-		cc.insets=new Insets(0,0,5,5);
+		cc.insets=new Insets(0,0,0,5);
 		cc.fill=GridBagConstraints.HORIZONTAL;
 		
 		JPanel pnlPersonalDetail=new JPanel();
@@ -193,10 +265,54 @@ public class createStudents extends JInternalFrame {
 		pnlPersonalDetail.add(ckCurrentStatus,cc);
 		
 		/*---------Closing -------------------------*/
+		
+		/*--------Search will be here ------------------*/
+		
+		tblStudent=new JTable(tblSearchRawdata,tblSearchcolumns);
+		/*Set JTable Properties*/
+		tblStudent.getColumnModel().getColumn(0).setPreferredWidth(300);
+		tblStudent.getColumnModel().getColumn(1).setPreferredWidth(150);
+		tblStudent.getColumnModel().getColumn(2).setPreferredWidth(150);
+		tblStudent.getColumnModel().getColumn(3).setPreferredWidth(200);
+		tblStudent.getColumnModel().getColumn(4).setPreferredWidth(300);
+		tblStudent.getColumnModel().getColumn(5).setPreferredWidth(200);
+		tblStudent.getColumnModel().getColumn(6).setPreferredWidth(150);
+		
+		
+		/*--------------------------*/
+		
+		jtblSearchScrollbar=new JScrollPane(tblStudent);
+		pnlSearch=new JPanel();
+		pnlTable =new JPanel();
+		pnlSearch.setSize(600, 300);
+		pnlSearch.setBorder(BorderFactory.createTitledBorder("Students List"));
+		pnlSearch.setLayout(new BorderLayout());
+		pnlfilter=new JPanel(new FlowLayout());
+		pnlfilter.add(lblSearchStd);
+		txtSearchStd.setFont(utils.textboxfont);
+		txtSearchRollno.setFont(utils.textboxfont);
+		pnlfilter.add(txtSearchStd);
+		pnlfilter.add(lblSearchRollno);
+		pnlfilter.add(txtSearchRollno);
+		pnlfilter.add(btnSearchFilter);
+		pnlfilter.add(btnSearchReset);
+		pnlTable.setLayout(new BorderLayout());
+		pnlTable.setBorder(BorderFactory.createEtchedBorder());
+		
+		pnlTable.add(jtblSearchScrollbar,BorderLayout.CENTER);
+		
+		pnlSearch.add(pnlfilter,BorderLayout.NORTH);
+		pnlSearch.add(pnlTable,BorderLayout.CENTER);
+		
+		//pnlSearch.setBorder(//BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Search Students",, titlePosition, titleFont));
+		/*-----------Closed ---------------------*/
+		
+		
+		JScrollPane scrollcontentpnl;
 		pnlContent.setLayout(new BorderLayout());
 		pnlContent.add(pnlbasicDetail,BorderLayout.WEST);
 		pnlContent.add(pnlPersonalDetail,BorderLayout.EAST);
-		
+		//pnlContent.add(pnlSearch,BorderLayout.SOUTH);
 		//pnlPersonalDetail.add(lblFathername);
 		//pnlContent.add(pnlPersonalDetail,BorderLayout.SOUTH);
 		/*Add buttons with a panel*/
@@ -204,14 +320,15 @@ public class createStudents extends JInternalFrame {
 		pnlControls.setLayout(new FlowLayout());
 		pnlControls.add(btnSave);
 		pnlControls.add(btnClose);
-		
-		pnlContent.add(pnlControls,BorderLayout.SOUTH);
-		
-		
+		pnlControls.setBorder(BorderFactory.createEmptyBorder());
+		pnlContent.add(pnlControls,BorderLayout.NORTH);
+		scrollcontentpnl=new JScrollPane(pnlContent);
+		setContentPane(pnlContentPane);
 		getContentPane().add(pnlHeader,BorderLayout.NORTH);
 		
-		getContentPane().add(pnlContent,BorderLayout.CENTER);
-		pnlTable=new JPanel();
+		getContentPane().add(scrollcontentpnl,BorderLayout.CENTER);
+		getContentPane().add(pnlSearch,BorderLayout.SOUTH);
+		
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		pack();
