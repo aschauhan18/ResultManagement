@@ -21,6 +21,7 @@ public class desktopmain extends JFrame{
 	create_school crschoold;
 	create_class crclass;
 	createStudents crStudetents;
+	createSession crSession;
 	public desktopmain() {
 		super("JInternalFrame Usage Demo");
 		// Make the main window positioned as 50 pixels from each edge of the
@@ -95,6 +96,26 @@ public class desktopmain extends JFrame{
 
 		menu.add(menuStudentItem);
 		/*MENU FOR STUDENTS CLOSED*/
+		/*SESSION*/
+		
+		
+		menu.addSeparator();
+		/*----------MENU FOR Session--------------------*/
+		JMenuItem menuSessionItem = new JMenuItem("Create Session");
+		menuSessionItem.setMnemonic(KeyEvent.VK_S);		
+		menuSessionItem.setFont(utils.menuitemfont);
+		menuSessionItem.setForeground(utils.menuitemfgColor);
+		menuSessionItem.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				crSession=new createSession();
+			   jdpDesktop.add(crSession.createSessionwindow());
+			}
+		});		
+
+		menu.add(menuSessionItem);
+		/*-----------SESSION MENU CLOSED-----------*/
+		
 		
 		menuBar.add(menu);
 		return menuBar;
