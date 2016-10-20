@@ -76,14 +76,10 @@ public class create_class extends JInternalFrame {
 		c.gridx=0;c.gridy=1;c.weightx=1;c.ipady=10;c.ipadx=5;c.insets=new Insets(2, 2, 2, 5);
 		pnlContent.add(lblclass,c);
 		c.gridx=1;c.gridy=1;
-		pnlContent.add(txtClassname,c);
+		pnlContent.add(txtClassname,c);		
 		c.gridx=0;c.gridy=2;
-		pnlContent.add(lblsection,c);
-		c.gridx=1;c.gridy=2;
-		pnlContent.add(txtSection,c);
-		c.gridx=0;c.gridy=3;
 		pnlContent.add(lblclassteacher,c);
-		c.gridx=1;c.gridy=3;
+		c.gridx=1;c.gridy=2;
 		pnlContent.add(txtClassTeacher,c);
 		getContentPane().add(new JSeparator());
 		getContentPane().add(pnlContent,BorderLayout.CENTER);

@@ -22,6 +22,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -44,8 +45,8 @@ public class create_school extends JFrame{
 	JTextField txtWebsite =new JTextField(25);
 	JTextField txtPhone =new JTextField(25);
 	 
-	JButton btnlogo=new JButton("Browse Logo");
-	JFileChooser filelogo =new JFileChooser();
+	 JButton btnlogo=new JButton("Browse Logo");
+	 JFileChooser filelogo =new JFileChooser();
 	 Calendar cal = new GregorianCalendar();
 	 JTextField txtestd =new JTextField(20);
 	 JTextField txtPrincipal =new JTextField(25);
