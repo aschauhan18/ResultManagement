@@ -37,7 +37,9 @@ public class createStudents extends JInternalFrame {
 	JPanel pnlSearch;
 	JPanel pnlfilter;
 	JPanel pnlTable;
+	
 	JScrollPane scrollContentPane;
+	JPanel pnlClassSection;
 	/*LABELS FOR TITILE*/
 	
 	actionListener alistener=new actionListener();
@@ -49,6 +51,7 @@ public class createStudents extends JInternalFrame {
 	JLabel lblrollno=new JLabel("Roll no.",SwingConstants.RIGHT);
 	JLabel lbljoinDate=new JLabel("Join Date.",SwingConstants.RIGHT);
 	JLabel lblsection=new JLabel("Section",SwingConstants.RIGHT);
+	JLabel lblSession =new JLabel("Session",SwingConstants.RIGHT);
 	
 	/*Group 2-Personal Detail*/
 	JLabel lblFathername=new JLabel("Father name",SwingConstants.RIGHT);
@@ -57,47 +60,10 @@ public class createStudents extends JInternalFrame {
 	JLabel Contactno=new JLabel("Contact no",SwingConstants.RIGHT);
 	JLabel lbldobDate=new JLabel("Date of Birth",SwingConstants.RIGHT);
 	JLabel lblcStatus=new JLabel("Current Status",SwingConstants.RIGHT);
+	
 	/*[search controls]*/
 	Object[] tblSearchcolumns ={"Student name","Roll no"," Class","Dob","Father's name","Contactno","Status","Modify","Delete"};
 	Object[][] tblSearchRawdata=new Object[][]{
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
 			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
 			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
 			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
@@ -124,14 +90,15 @@ public class createStudents extends JInternalFrame {
 	JTextField txtStudentname =new JTextField(20);
 	JTextArea txtAddress =new JTextArea(3,1);
 	JComboBox cbClass =new JComboBox(clsContants.classList);
-	JComboBox cbSectoin =new JComboBox(clsContants.sectionList);
+	JComboBox cbSection =new JComboBox(clsContants.sectionList);
+	JComboBox cbSession =new JComboBox(clsContants.sessionList);
 	JTextField txtRollno =new JTextField(20);
 	JTextField txtJbdate =new JTextField(20);
 	JTextField txtFathername =new JTextField(20);
 	JTextField txtMothername =new JTextField(20);
 	JTextField txtContactno =new JTextField(20);
 	JTextField txtDob =new JTextField(20);
-	JCheckBox ckCurrentStatus=new JCheckBox("Current Status");	
+	JCheckBox ckCurrentStatus=new JCheckBox("Studing");	
 	/*Closed input*/
 	JTextField txtClassname=new JTextField(20);
 	JTextField txtSection=new JTextField(20);
@@ -157,7 +124,8 @@ public class createStudents extends JInternalFrame {
 		pnlParentContainer=new JPanel();
 		pnlContentPane=new JPanel();
 		pnlContentPane.setLayout(new BoxLayout(pnlContentPane, BoxLayout.Y_AXIS));
-		
+		ckCurrentStatus.setSelected(true);
+		ckCurrentStatus.addActionListener(alistener);
 		//scrollContentPane=new JScrollPane(pnlContentPane);
 		pnlParentContainer.add(pnlContentPane);
 		
@@ -175,7 +143,7 @@ public class createStudents extends JInternalFrame {
 		lblTitle.setFont(utils.titlefont);
 		lblTitle.setForeground(utils.titleforeground);
 		pnlHeader.add(lblTitle);
-		
+		pnlClassSection=new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
 		//getContentPane().setLayout();
 		JPanel pnlClassDetail=new JPanel();
@@ -201,13 +169,17 @@ public class createStudents extends JInternalFrame {
 		c.gridx=0;c.gridy=1;
 		pnlbasicDetail.add(lblclass,c);
 		c.gridx=1;c.gridy=1;
-		pnlbasicDetail.add(cbClass,c);
+		cbSection.setFont(utils.dropboxfont);
+		pnlClassSection.add(cbClass);
+		pnlClassSection.add(lblsection);
+		pnlClassSection.add(cbSection);
+		pnlbasicDetail.add(pnlClassSection,c);
 		cbClass.setFont(utils.dropboxfont);
 		c.gridx=0;c.gridy=2;
-		pnlbasicDetail.add(lblsection,c);
+		pnlbasicDetail.add(lblSession,c);
 		c.gridx=1;c.gridy=2;
-		cbSectoin.setFont(utils.dropboxfont);		
-		pnlbasicDetail.add(cbSectoin,c);
+		cbSession.setFont(utils.dropboxfont);		
+		pnlbasicDetail.add(cbSession,c);
 		c.gridx=0;c.gridy=3;
 		pnlbasicDetail.add(lblrollno,c);
 		c.gridx=1;c.gridy=3;
@@ -362,10 +334,22 @@ public class createStudents extends JInternalFrame {
 					ae.printStackTrace();
 				}
 				
+				
 			}
 			if (e.getSource()==btnSave)
 			{
 				JOptionPane.showMessageDialog (null, "Save Called", "Information", JOptionPane.INFORMATION_MESSAGE);
+			}
+			if(e.getSource()==ckCurrentStatus)
+			{
+				if (ckCurrentStatus.isSelected()==true)
+				{
+					ckCurrentStatus.setText("Studing");
+				}
+				else
+				{
+					ckCurrentStatus.setText("Left");
+				}
 			}
 			
 			
@@ -382,6 +366,7 @@ public class createStudents extends JInternalFrame {
 					{
 						txtStudentname.selectAll();
 					}
+					
 		}
 
 		@Override
@@ -389,6 +374,7 @@ public class createStudents extends JInternalFrame {
 			// TODO Auto-generated method stub
 			
 		}
+		
 		
 	}
 }
