@@ -29,6 +29,7 @@ import javax.swing.border.Border;
 
 public class createStudents extends JInternalFrame {
 
+	JPanel pnlParentContainer;
 	JPanel pnlContentPane;
 	JPanel pnlHeader;
 	JPanel pnlContent ;
@@ -59,7 +60,6 @@ public class createStudents extends JInternalFrame {
 	/*[search controls]*/
 	Object[] tblSearchcolumns ={"Student name","Roll no"," Class","Dob","Father's name","Contactno","Status","Modify","Delete"};
 	Object[][] tblSearchRawdata=new Object[][]{
-			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
 			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
 			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
 			{"Ramesh ","15212","V-A","01-10-2005","Mr Mohan","986512121","Active","Modify","Delete"},
@@ -145,6 +145,7 @@ public class createStudents extends JInternalFrame {
 	
 	public createStudents()
 	{
+		
 		setTitle("------------CREATE CLASS--------------");
 		setVisible(true);
 		setMaximizable(false);
@@ -153,10 +154,13 @@ public class createStudents extends JInternalFrame {
 		pnlHeader=new JPanel();
 		pnlContent=new JPanel();
 		pnlControls=new JPanel();
-		 
-		pnlContentPane=new JPanel(new BorderLayout());
-		scrollContentPane=new JScrollPane();
-		pnlContentPane.add(scrollContentPane);
+		pnlParentContainer=new JPanel();
+		pnlContentPane=new JPanel();
+		pnlContentPane.setLayout(new BoxLayout(pnlContentPane, BoxLayout.Y_AXIS));
+		
+		//scrollContentPane=new JScrollPane(pnlContentPane);
+		pnlParentContainer.add(pnlContentPane);
+		
 		setClosable(true);
 		try{
 			setSelected(true);}catch(PropertyVetoException ae)
@@ -284,7 +288,6 @@ public class createStudents extends JInternalFrame {
 		jtblSearchScrollbar=new JScrollPane(tblStudent);
 		pnlSearch=new JPanel();
 		pnlTable =new JPanel();
-		pnlSearch.setSize(600, 300);
 		pnlSearch.setBorder(BorderFactory.createTitledBorder("Students List"));
 		pnlSearch.setLayout(new BorderLayout());
 		pnlfilter=new JPanel(new FlowLayout());
@@ -303,6 +306,7 @@ public class createStudents extends JInternalFrame {
 		
 		pnlSearch.add(pnlfilter,BorderLayout.NORTH);
 		pnlSearch.add(pnlTable,BorderLayout.CENTER);
+		pnlTable.setBorder(BorderFactory.createEmptyBorder(5, 5, 20, 5));
 		
 		//pnlSearch.setBorder(//BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Search Students",, titlePosition, titleFont));
 		/*-----------Closed ---------------------*/
@@ -321,15 +325,24 @@ public class createStudents extends JInternalFrame {
 		pnlControls.add(btnSave);
 		pnlControls.add(btnClose);
 		pnlControls.setBorder(BorderFactory.createEmptyBorder());
-		pnlContent.add(pnlControls,BorderLayout.NORTH);
+		
+		pnlContent.add(pnlControls,BorderLayout.SOUTH);
 		scrollcontentpnl=new JScrollPane(pnlContent);
-		setContentPane(pnlContentPane);
-		getContentPane().add(pnlHeader,BorderLayout.NORTH);
+		//setContentPane(pnlContentPane);
+		//getContentPane().add(pnlHeader,BorderLayout.NORTH);
+		pnlContentPane.add(pnlHeader);
+		pnlContentPane.add(scrollcontentpnl);
+		pnlContentPane.add(pnlSearch);
 		
-		getContentPane().add(scrollcontentpnl,BorderLayout.CENTER);
-		getContentPane().add(pnlSearch,BorderLayout.SOUTH);
-		
-		
+		this.getContentPane().add(pnlParentContainer);
+		/*
+		//getContentPane().add(scrollcontentpnl,BorderLayout.CENTER);
+		getContentPane().add(scrollcontentpnl);
+		//getContentPane().add(pnlSearch,BorderLayout.SOUTH);
+		getContentPane().add(pnlSearch);*/
+		//this.add(pnlContentPane);
+		//pnlContentPane.add(pnlHeader);
+		//this.getContentPane().add(pnlContentPane);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		pack();
 		return this;
